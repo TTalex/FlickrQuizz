@@ -1,0 +1,41 @@
+{{define "Seed"}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-eqiv="content-type" content="text/html;charset=utf-8">
+    <title></title>
+    <link rel=stylesheet href="/css/site.css">
+  </head>
+  <body>
+    <div id="top">
+      <h1>Flickr Quizz</h1>
+    </div>
+    <div id="main">
+      <form action="/play/" method="GET">
+	<h2>Enter a city or place name</h2>
+	<div><input type="text" name="city" id="cityname" value="Paris"></input></div>
+	<h2>Config</h2>
+	<div id="config">
+	  <div>
+	    <div class="left"><span>Seed</span></div>
+	    <input type="text" name="seed" id="seed" value="{{.}}" class="right"></input>
+	  </div>
+	  <div id="radios">
+	    <div class="left"><span>Mod</span></div>
+	    <div class="right">
+	      <input type="radio" name="gamemode" value="1" id="c1" checked></input>
+	      <label for="c1">Endless</label>
+	      
+	      <input type="radio" name="gamemode" value="30" id="c2"></input>
+	      <label for="c2">30 Pictures</label>
+	    </div>
+	  </div>
+	</div>
+	<div>
+	  <input type="submit" value="Play">
+	</div>
+      </form>
+    </div>
+  </body>
+</html>
+{{end}}

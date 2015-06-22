@@ -1,0 +1,96 @@
+{{define "Contents"}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-eqiv="content-type" content="text/html;charset=utf-8">
+    <title>Flickr Quizz</title>
+    <link rel=stylesheet href="/css/site.css">
+    <script type="text/javascript"
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3FzjaP3F-piuwV0mRdawQhX7R5ogJdx8&sensor=true">
+    </script>
+    <script type="text/javascript">
+      var map;
+      function initialize() {
+      var mapOptions = {
+      center: new google.maps.LatLng({{.Lat}}, {{.Lng}}),
+      zoom: 12,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map = new google.maps.Map(document.getElementById("map-canvas"),
+      mapOptions);
+
+      var lineCoords = [
+      new google.maps.LatLng({{.Lat}}-1, {{.Lng}}),
+      new google.maps.LatLng({{.Lat}}+1, {{.Lng}})
+      ];
+      var line = new google.maps.Polyline({
+      path: lineCoords,
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 1
+      });
+      line.setMap(map);
+      {{.Circle}}
+
+      //Animations
+      // make some waves.
+      var ocean = document.getElementById("ocean"),
+      waveWidth = 5,
+      waveCount = Math.floor(20/waveWidth),
+      docFrag = document.createDocumentFragment();
+      
+      for(var i = 0; i < waveCount; i++){
+			 var wave = document.createElement("div");
+			 wave.className += " wave";
+			 ocean.appendChild(wave);
+			 wave.style.top = i * waveWidth + "px";
+			 wave.style.animationDelay = "0s,"+(i/100 +5) + "s";
+	 }
+			 
+	 ocean.appendChild(docFrag);
+			 
+			 
+	 }
+ google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    </script>
+<style>
+{{.Animations}} 
+ 
+</style>
+  </head>
+  <body>
+
+    <div id="top">
+      <a href="/"><h1>Flickr Quizz</h1></a>
+    </div>
+    <div id="main">
+      
+      <div id="quizz">
+	<div id="up">
+	  <div id="mainimg"> {{.Image}}</div>
+	  <form action="" method="POST">
+	    {{.Hidden}}
+	    <input type="submit" name="action" value="West"/>
+	    <input type="submit" name="action" value="East"/>
+	   </form>
+	</div>
+	
+	<div id="bottom">
+	  <div id="info">{{.Resultmsg}}</div>
+	  <div id="ocean">
+	    
+	  </div>
+
+	</div>
+      </div>    
+      <div id="map-canvas"/>
+      
+      
+    </div>
+  </body>
+</html>
+{{end}}
