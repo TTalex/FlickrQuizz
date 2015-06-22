@@ -1,6 +1,12 @@
 ##Introduction
 FlickrQuizz is a web-based game using Flickr and Google APIs where the player has to guess locations of random pictures within a city.
 
+An initial configuration allows the player to:
+* Select the city he wants to play within
+* Use a specific seed if he wants to challenge his friends on the same set of pictures
+* Select a preferred game mode, endless continues until the player makes too many errors in a row, the other modes limit the number of pictures
+
+
 ##Used API
 * [Flickr API](https://www.flickr.com/services/api/) to retrieve random pictures with geo tags.
 * [Google Maps API](https://developers.google.com/maps/) to display a map of the selected city.
