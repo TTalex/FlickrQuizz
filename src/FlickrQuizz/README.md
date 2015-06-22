@@ -7,7 +7,7 @@ An initial configuration allows the player to:
 * Select a preferred game mode, endless continues until the player makes too many errors in a row, the other modes limit the number of pictures
 
 
-##Used API
+##Used APIs
 * [Flickr API](https://www.flickr.com/services/api/) to retrieve random pictures with geo tags.
 * [Google Maps API](https://developers.google.com/maps/) to display a map of the selected city.
 * [Google Maps Geolocation API](https://developers.google.com/maps/documentation/geolocation/) to translate city names into latitude and longitude values.
