@@ -36,3 +36,7 @@ An initial configuration allows the player to:
   ```
   
 2. Access [localhost:8081](http://localhost:8081)
+
+##Demo
+
+[FickrQuizz on heroku](https://flickrquizz.herokuapp.com/)
